@@ -5,9 +5,13 @@
   "main": "slider_dh.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
   },
   "author": "Daniel Høifødt",
   "license": "ISC",
-  "dependencies": {}
+  "devDependencies": {
+    "parcel": "^2.0.0",
+    "prettier": "2.4.1"
+  }
 }
