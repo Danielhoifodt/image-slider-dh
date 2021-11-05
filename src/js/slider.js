@@ -5,14 +5,18 @@ var img = document.getElementById('slider');
 var opacity = 0;
 var intervalID = 0;
 
-function load_img(image) {
+// console.log(images[0].href);
+
+function loadImage(image) {
+    console.log('Image: ', image);
+
     img.style.opacity = 0;
 
     img.setAttribute('width', settings.width);
 
     img.setAttribute('height', settings.height);
 
-    img.setAttribute('src', image);
+    img.setAttribute('src', image.href);
 
     img.classList.add('.slider');
 
@@ -20,11 +24,14 @@ function load_img(image) {
 }
 
 function next_prev() {
+    console.log('Called next_prev ...');
+    console.log(images[0].href);
+
     img.setAttribute('width', settings.width);
 
     img.setAttribute('height', settings.height);
 
-    img.setAttribute('src', images[0]);
+    img.setAttribute('src', images[0].href);
 
     img.classList.add('slider');
 
@@ -43,15 +50,16 @@ function next_prev() {
 
 function next() {
     let image = images++;
-    img.setAttribute('src', image);
+    img.setAttribute('src', image.href);
 }
 
 function prev() {
     let image = images--;
-    img.setAttribute('src', image);
+    img.setAttribute('src', image.href);
 }
 
 function fadeIn() {
+    console.log('Calling fadeIn');
     setInterval(function () {
         opacity = Number(
             window.getComputedStyle(img).getPropertyValue('opacity')
@@ -66,16 +74,20 @@ function fadeIn() {
 }
 
 function timer() {
+    console.log('Calling timer');
+    console.log('Images length ...', images.length);
     for (let i = 0; i <= images.length; i++) {
         setTimeout(function () {
-            load_img(images[i]);
-            if (i == images.length) {
+            if (i === images.length) {
                 timer();
+            } else {
+                loadImage(images[i]);
             }
         }, settings.duration * i);
     }
 }
 if (settings.arrows === true) {
+    console.log('Calling next_prev settings arrows');
     next_prev();
 } else {
     timer();
