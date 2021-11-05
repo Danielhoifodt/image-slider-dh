@@ -5,7 +5,7 @@
 }
 
 .arrow1 {
-  background-image: url("./arrow.jpg");
+  background-image: url("../images/arrow.jpg");
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -14,7 +14,7 @@
 }
 .arrow2 {
   z-index: 1000;
-  background-image: url("./arrow.jpg");
+  background-image: url("../images/arrow.jpg");
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
