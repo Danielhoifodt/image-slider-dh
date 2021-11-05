@@ -1,9 +1,9 @@
 import settings from './settings.js';
 import images from './images.js';
 
-var img = document.getElementById('slider');
-var opacity = 0;
-var intervalID = 0;
+let img = document.getElementById('slider');
+let opacity = 0;
+let intervalID = 0;
 
 // console.log(images[0].href);
 
@@ -87,7 +87,7 @@ function timer() {
     }
 }
 if (settings.arrows === true) {
-    console.log('Calling next_prev settings arrows');
+    console.log('Arrows is true');
     next_prev();
 } else {
     timer();
