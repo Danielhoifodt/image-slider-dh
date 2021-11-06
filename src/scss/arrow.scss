@@ -1,0 +1,152 @@
+@use 'sass:math';
+
+@import 'variables';
+@import 'utilities';
+
+.arrow-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.block {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/***************
+   * Arrow 1
+   ***************/
+
+#arrow_1 .arrow {
+    $size: $arrow-size;
+    $width: $arrow-width;
+    cursor: pointer;
+    width: math.div($size, 1.414);
+    height: math.div($size, 1.414) * 2;
+    position: relative;
+
+    & span,
+    &:before,
+    &:after {
+        background: $color-black;
+        content: '';
+        display: block;
+        width: $size;
+        height: $width;
+        position: absolute;
+        top: calc(50% - (#{$width} / 2));
+    }
+
+    &:before {
+        transform: rotate(-45deg);
+    }
+    &:after {
+        transform: rotate(45deg);
+    }
+
+    & span {
+        width: 0;
+    }
+    &:hover span {
+        width: $size * 1.414;
+    }
+
+    @each $direction in 'left' 'right' {
+        &.arrow--#{$direction} {
+            & span,
+            &:before,
+            &:after {
+                #{$direction}: 0;
+                transform-origin: #{$direction} 50%;
+            }
+
+            &:before,
+            &:after {
+                transition: #{$direction} 0.3s 0.05s;
+            }
+
+            & span {
+                transition: width 0.3s, #{$direction} 0.3s 0.05s;
+            }
+
+            &:hover {
+                & span,
+                &:before,
+                &:after {
+                    #{$direction}: math.div($size, 1.414) * -1;
+                }
+            }
+        }
+    }
+}
+
+/***************
+   * Arrow 2
+   ***************/
+
+#arrow_2 .arrow {
+    $size: $arrow-size;
+    $width: $arrow-width;
+
+    color: #fff;
+    cursor: pointer;
+
+    align-items: flex-start;
+    text-transform: uppercase;
+    position: relative;
+    transition: transform 0.3s;
+
+    span {
+        display: block;
+        width: 3em;
+        opacity: 0;
+        transition: opacity 0.3s 0s;
+        padding: 0 0.5em;
+    }
+
+    &:hover span {
+        opacity: 1;
+        transition: opacity 0.3s 0.1s;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        border: solid #fff;
+        border-width: $width $width 0 0;
+        position: absolute;
+        top: 4px;
+        width: $size;
+        height: $size;
+    }
+
+    &.arrow--left:before {
+        transform: rotate(-135deg);
+        right: 0;
+        transition: right 0.3s 0.2s;
+    }
+    &.arrow--left:hover:before {
+        right: 100%;
+        transition: right 0.3s;
+    }
+
+    &.arrow--right {
+        text-align: right;
+    }
+    &.arrow--right:before {
+        left: 0;
+        transform: rotate(45deg);
+        transition: left 0.3s 0.2s;
+    }
+    &.arrow--right:hover:before {
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    &:hover {
+        transform: none;
+    }
+}
