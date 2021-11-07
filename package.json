@@ -4,7 +4,11 @@
     "description": "Javascript slider",
     "main": "slider_dh.js",
     "type": "module",
+    "source": "src/index.html",
     "browserslist": "> 0.5%, last 2 versions, not dead",
+    "@parcel/transformer-js": {
+        "inlineFS": true
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
@@ -17,5 +21,9 @@
         "@parcel/transformer-sass": "^2.0.0",
         "parcel": "^2.0.0",
         "prettier": "2.4.1"
+    },
+    "dependencies": {
+        "@parcel/resolver-glob": "^2.0.0",
+        "@parcel/transformer-image": "^2.0.0"
     }
 }

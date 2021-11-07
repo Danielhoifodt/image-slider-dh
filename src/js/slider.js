@@ -1,10 +1,11 @@
 import settings from '../config/settings.js';
-import images from './images.js';
+import images from 'url:../images/*.jpg';
 
 let img = document.getElementById('slider');
 let opacity = 0;
 let intervalID = 0;
-let slideCounter = 0;
+let slideCounter = 1;
+const numberofImages = Object.keys(images).length;
 
 function hideArrows() {
     const arrow1 = document.getElementById('arrow1');
@@ -17,7 +18,7 @@ function loadImage(image) {
     img.style.opacity = 0;
     img.setAttribute('width', settings.width);
     img.setAttribute('height', settings.height);
-    img.setAttribute('src', image.href);
+    img.setAttribute('src', image);
     img.classList.add('slider');
     fadeIn();
 }
@@ -25,7 +26,7 @@ function loadImage(image) {
 function arrowNavigate() {
     img.setAttribute('width', settings.width);
     img.setAttribute('height', settings.height);
-    img.setAttribute('src', images[0].href);
+    img.setAttribute('src', images[1]);
 
     const arrow1 = document.getElementById('arrow1');
     const arrow2 = document.getElementById('arrow2');
@@ -35,19 +36,19 @@ function arrowNavigate() {
 }
 
 function nextImage() {
-    slideCounter++;
-    if (slideCounter === images.length) {
+    if (slideCounter === numberofImages) {
         slideCounter = 0;
     }
-    img.setAttribute('src', images[slideCounter].href);
+    slideCounter++;
+    img.setAttribute('src', images[slideCounter]);
 }
 
 function prevImage() {
-    if (slideCounter === 0) {
-        slideCounter = images.length;
-    }
     slideCounter--;
-    img.setAttribute('src', images[slideCounter].href);
+    if (slideCounter === 0) {
+        slideCounter = numberofImages;
+    }
+    img.setAttribute('src', images[slideCounter]);
 }
 
 function fadeIn() {
@@ -65,9 +66,10 @@ function fadeIn() {
 }
 
 function timer() {
-    for (let i = 0; i <= images.length; i++) {
+    for (let i = 1; i <= numberofImages; i++) {
         setTimeout(function () {
-            if (i === images.length) {
+            if (i === numberofImages) {
+                loadImage(images[i]);
                 timer();
             } else {
                 loadImage(images[i]);
