@@ -6,9 +6,6 @@
     "type": "module",
     "source": "src/index.html",
     "browserslist": "> 0.5%, last 2 versions, not dead",
-    "@parcel/transformer-js": {
-        "inlineFS": true
-    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
