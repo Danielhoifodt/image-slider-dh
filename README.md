@@ -12,6 +12,6 @@ In the settings.js file you can maipulate the values of the object to your likin
 
 -Run "npm install" befor you use it, and start it up with "npm run start"
 
-To view the default slider paste this address in your webbrowser https://image-slider-dh.vercel.app/
+To view the default slider visit this adderss https://image-slider-dh.vercel.app/
 
 -Cheers Daniel
