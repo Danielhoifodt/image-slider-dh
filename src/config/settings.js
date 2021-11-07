@@ -1,7 +1,7 @@
 const settings = {
     duration: 5000,
-    fadespeed: 1000,
-    // Set to false to disable arrows
+    fadespeed: 200,
+    // Set to true to enable arrows
     arrows: false,
     width: '1000px',
     height: '500px'
