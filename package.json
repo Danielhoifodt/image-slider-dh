@@ -2,7 +2,6 @@
     "name": "slider",
     "version": "1.0.0",
     "description": "Javascript slider",
-    "main": "src/js/slider.js",
     "type": "module",
     "source": "index.html",
     "browserslist": "> 0.5%, last 2 versions, not dead",
