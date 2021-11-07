@@ -1,3 +1,13 @@
+@import 'mixins';
+
 .hidden {
     display: none;
+}
+
+.fadeIn {
+    @include fade(fadeIn, ease, $fade-duration, $fade-length, forward);
+}
+
+.fadeOut {
+    @include fade(fadeOut, ease, $fade-duration, $fade-length, forward);
 }

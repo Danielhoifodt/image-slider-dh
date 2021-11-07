@@ -2,8 +2,6 @@ import settings from '../config/settings.js';
 import images from 'url:../images/*.jpg';
 
 let img = document.getElementById('slider');
-let opacity = 0;
-let intervalID = 0;
 let slideCounter = 1;
 const numberofImages = Object.keys(images).length;
 
@@ -15,7 +13,6 @@ function hideArrows() {
 }
 
 function loadImage(image) {
-    img.style.opacity = 0;
     img.setAttribute('width', settings.width);
     img.setAttribute('height', settings.height);
     img.setAttribute('src', image);
@@ -41,6 +38,7 @@ function nextImage() {
     }
     slideCounter++;
     img.setAttribute('src', images[slideCounter]);
+    fadeIn();
 }
 
 function prevImage() {
@@ -49,19 +47,13 @@ function prevImage() {
         slideCounter = numberofImages;
     }
     img.setAttribute('src', images[slideCounter]);
+    fadeIn();
 }
 
 function fadeIn() {
-    setInterval(function () {
-        opacity = Number(
-            window.getComputedStyle(img).getPropertyValue('opacity')
-        );
-        if (opacity < 1) {
-            opacity = opacity + 0.1;
-            img.style.opacity = opacity;
-        } else {
-            clearInterval(intervalID);
-        }
+    img.classList.add('fadeIn');
+    setTimeout(function () {
+        img.classList.remove('fadeIn');
     }, settings.fadespeed);
 }
 
