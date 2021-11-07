@@ -1,9 +1,9 @@
 import settings from '../config/settings.js';
 import images from 'url:../images/*.jpg';
 
-let img = document.getElementById('slider');
-let slideCounter = 1;
+const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
+let slideCounter = 1;
 
 function hideArrows() {
     const arrow1 = document.getElementById('arrow1');
