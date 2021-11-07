@@ -6,7 +6,7 @@ It can:
 -It is fully customizable 
 -It uses javascript and scss
 
-How to use it: Insert images into the src/images folder. Each image must be .jpg(lower case) and named 1, 2, 3... etc. for it to work. See the provided images folder.
+How to use it: Insert images into the src/images folder. Each image must be .jpg and named 1, 2, 3... etc. for it to work. See the provided images folder.
 
 In the settings.js file you can maipulate the values of the object to your likings. Like duration of slides, fade-in time, width and hight of images or if you want to use arrows for going back and forth in the slideshow or not. (Look in src/config/settings.js)
 
