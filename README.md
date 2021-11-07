@@ -1,4 +1,5 @@
 # image-slider-dh
+
 This is a image slider made in javascript. See readme for instructions.
 
 Insert images into the img folder and then edit the images.js file... put each source of image one after another... the order you want. See the demo files provided in this repo.
@@ -11,10 +12,9 @@ Code is in master branch.
 
 Good luck, and hope it has a function in your website.
 
-## Start 
+## Start
 
 Run the following commands:
-
 
 ```
 npm install
