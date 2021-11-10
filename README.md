@@ -1,9 +1,10 @@
 # image-slider-dh
+
 This is a image slider made for webpages.
 
-It can: 
--Cycle through images automatic or with arrows 
--It is fully customizable 
+It can:
+-Cycle through images automatic or with arrows
+-It is fully customizable
 -It uses javascript and scss
 
 How to use it: Insert images into the src/images folder. Each image must be .jpg and named 1, 2, 3... etc. for it to work. See the provided images folder.
