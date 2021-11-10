@@ -13,18 +13,11 @@
     }
 }
 
-.selector {
-    color: red;
-
-    @include responsive-to('small') {
-        color: blue;
-    }
-}
-
 .arrow-wrapper {
     display: flex;
     align-items: center;
     margin-left: 0px;
+
     @include responsive-to('small') {
         margin-left: 20px;
     }
