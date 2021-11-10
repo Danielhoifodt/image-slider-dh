@@ -8,3 +8,16 @@ $arrow-width: 2px;
 
 // Colors
 $color-black: #000;
+
+// Responsive breakpoints
+$breakpoints: (
+    'small': (
+        min-width: 767px
+    ),
+    'medium': (
+        min-width: 992px
+    ),
+    'large': (
+        min-width: 1200px
+    )
+) !default;

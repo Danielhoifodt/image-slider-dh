@@ -2,11 +2,25 @@
 
 @import 'variables';
 @import 'utilities';
+@import 'responsive';
+
+#slider {
+    max-width: 80vw;
+    height: auto;
+
+    @include responsive-to('large') {
+        max-width: 100vw;
+    }
+}
 
 .arrow-wrapper {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 0px;
+
+    @include responsive-to('small') {
+        margin-left: 20px;
+    }
 }
 
 .block {
