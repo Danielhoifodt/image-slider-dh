@@ -1,6 +1,6 @@
 const settings = {
     // Animations
-    duration: '3.0s',
+    duration: 5000,
     fadespeed: 3000,
     animateEffect: 'animate__zoomIn', // Copy any animate in classname from https://animate.style
     // UI

@@ -7,6 +7,17 @@ const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
 let slideCounter = 1;
 
+function secDur()
+{
+    let float = (settings.fadespeed/1000) % 60;
+    
+    let string = float.toString()
+
+    let result = string + "s"
+    
+    return result
+}
+
 function hideArrows() {
     const arrow1 = document.getElementById('arrow1');
     const arrow2 = document.getElementById('arrow2');
@@ -19,13 +30,12 @@ function loadImage(image) {
     img.setAttribute('height', settings.height);
     img.setAttribute('src', image);
     img.classList.add('slider');
-    animateIn();
 }
 
 function arrowNavigate() {
     img.setAttribute('width', settings.width);
     img.setAttribute('height', settings.height);
-    img.setAttribute('src', images[1]);
+    img.setAttribute('src', images[slideCounter]);
 
     const arrow1 = document.getElementById('arrow1');
     const arrow2 = document.getElementById('arrow2');
@@ -48,12 +58,13 @@ function prevImage() {
     if (slideCounter === 0) {
         slideCounter = numberofImages;
     }
+
     img.setAttribute('src', images[slideCounter]);
     animateIn();
 }
 
 function animateIn() {
-    img.style.setProperty('--animate-duration', settings.duration);
+    img.style.setProperty('--animate-duration', secDur());
     img.classList.add('animate__animated', settings.animateEffect);
 
     setTimeout(function () {
