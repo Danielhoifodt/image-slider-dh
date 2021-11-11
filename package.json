@@ -4,7 +4,7 @@
     "description": "Javascript slider",
     "type": "module",
     "source": "index.html",
-    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "browserslist": "> 1.0%, last 3 versions, not dead",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
