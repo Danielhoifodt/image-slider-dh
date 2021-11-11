@@ -1,6 +1,8 @@
 import settings from '../config/settings.js';
 import images from 'url:../images/*.jpg';
 
+import 'animate.css';
+
 const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
 let slideCounter = 1;
@@ -17,7 +19,7 @@ function loadImage(image) {
     img.setAttribute('height', settings.height);
     img.setAttribute('src', image);
     img.classList.add('slider');
-    fadeIn();
+    animateIn();
 }
 
 function arrowNavigate() {
@@ -38,7 +40,7 @@ function nextImage() {
     }
     slideCounter++;
     img.setAttribute('src', images[slideCounter]);
-    fadeIn();
+    animateIn();
 }
 
 function prevImage() {
@@ -47,13 +49,15 @@ function prevImage() {
         slideCounter = numberofImages;
     }
     img.setAttribute('src', images[slideCounter]);
-    fadeIn();
+    animateIn();
 }
 
-function fadeIn() {
-    img.classList.add('fadeIn');
+function animateIn() {
+    img.style.setProperty('--animate-duration', settings.duration);
+    img.classList.add('animate__animated', settings.animateEffect);
+
     setTimeout(function () {
-        img.classList.remove('fadeIn');
+        img.classList.remove(settings.animateEffect);
     }, settings.fadespeed);
 }
 

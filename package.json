@@ -4,7 +4,7 @@
     "description": "Javascript slider",
     "type": "module",
     "source": "index.html",
-    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "browserslist": "> 1.0%, last 3 versions, not dead",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
@@ -14,10 +14,13 @@
     "author": "Daniel Høifødt",
     "license": "ISC",
     "devDependencies": {
+        "@parcel/resolver-glob": "^2.0.0",
+        "@parcel/transformer-image": "^2.0.0",
         "@parcel/transformer-sass": "^2.0.0",
         "parcel": "^2.0.0",
-        "prettier": "2.4.1",
-        "@parcel/resolver-glob": "^2.0.0",
-        "@parcel/transformer-image": "^2.0.0"
+        "prettier": "2.4.1"
+    },
+    "dependencies": {
+        "animate.css": "^4.1.1"
     }
 }

@@ -1,8 +1,10 @@
 const settings = {
-    duration: 5000,
-    fadespeed: 2000,
-    // Set to false to disable arrows
-    arrows: true,
+    // Animations
+    duration: '3.0s',
+    fadespeed: 3000,
+    animateEffect: 'animate__rotateIn', // Copy any animate in classname from https://animate.style
+    // UI
+    arrows: true, // Set to false to disable arrows
     width: '1000px',
     height: '500px'
 };
