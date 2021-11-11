@@ -7,7 +7,7 @@ const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
 let slideCounter = 1;
 
-function secDur()
+function fadeSpeedToString()
 {
     let float = (settings.fadespeed/1000) % 60;
     
@@ -64,7 +64,7 @@ function prevImage() {
 }
 
 function animateIn() {
-    img.style.setProperty('--animate-duration', secDur());
+    img.style.setProperty('--animate-duration', fadeSpeedToString());
     img.classList.add('animate__animated', settings.animateEffect);
 
     setTimeout(function () {
