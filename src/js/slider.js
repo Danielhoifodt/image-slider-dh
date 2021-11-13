@@ -6,6 +6,34 @@ import 'animate.css';
 const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
 let slideCounter = 1;
+let preloaded = 0
+
+document.addEventListener("DOMContentLoaded", preLoader, true);
+
+function preLoader(e) {
+    for (let i = 1; i <= numberofImages; i++) {
+        let tempImage = new Image();
+         
+        tempImage.addEventListener("load", progress, true);
+        tempImage.src = images[i];
+        console.log(tempImage.src)
+    }
+}
+
+function progress() {
+    preloaded++;
+     console.log(preloaded)
+    if (preloaded == numberofImages) {
+        console.log("all loaded")
+        if (settings.arrows === true) {
+            arrowNavigate();
+        } else {
+            hideArrows();
+            timer();
+        }
+        
+    }
+}
 
 function secDur()
 {
@@ -49,6 +77,7 @@ function nextImage() {
         slideCounter = 0;
     }
     slideCounter++;
+    console.log(slideCounter)
     img.setAttribute('src', images[slideCounter]);
     animateIn();
 }
@@ -85,9 +114,3 @@ function timer() {
     }
 }
 
-if (settings.arrows === true) {
-    arrowNavigate();
-} else {
-    hideArrows();
-    timer();
-}
