@@ -22,12 +22,16 @@ function preLoader() {
 function progress() {
     preloaded++;
     console.log(preloaded);
-
-    if (settings.arrows === false) {
-        hideArrows();
-        timer();
+    if(preloaded == numberofImages)
+    {
+        if (settings.arrows === false) {
+            hideArrows();
+            timer();
+        }
+        else{
+        arrowNavigate();
+        }
     }
-    arrowNavigate();
 }
 
 function fadeSpeedToString() {
