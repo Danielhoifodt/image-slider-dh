@@ -6,44 +6,35 @@ import 'animate.css';
 const img = document.getElementById('slider');
 const numberofImages = Object.keys(images).length;
 let slideCounter = 1;
-let preloaded = 0
+let preloaded = 0;
 
-document.addEventListener("DOMContentLoaded", preLoader, true);
+document.addEventListener('DOMContentLoaded', preLoader, true);
 
-function preLoader(e) {
+function preLoader() {
     for (let i = 1; i <= numberofImages; i++) {
         let tempImage = new Image();
-         
-        tempImage.addEventListener("load", progress, true);
+        tempImage.addEventListener('load', progress, true);
         tempImage.src = images[i];
-        console.log(tempImage.src)
+        console.log(tempImage.src);
     }
 }
 
 function progress() {
     preloaded++;
-     console.log(preloaded)
-    if (preloaded == numberofImages) {
-        console.log("all loaded")
-        if (settings.arrows === true) {
-            arrowNavigate();
-        } else {
-            hideArrows();
-            timer();
-        }
-        
+    console.log(preloaded);
+
+    if (settings.arrows === false) {
+        hideArrows();
+        timer();
     }
+    arrowNavigate();
 }
 
-function fadeSpeedToString()
-{
-    let float = (settings.fadespeed/1000) % 60;
-    
-    let string = float.toString()
-
-    let result = string + "s"
-    
-    return result
+function fadeSpeedToString() {
+    let float = (settings.fadespeed / 1000) % 60;
+    let string = float.toString();
+    let result = string + 's';
+    return result;
 }
 
 function hideArrows() {
@@ -73,23 +64,24 @@ function arrowNavigate() {
 }
 
 function nextImage() {
+    animateIn();
     if (slideCounter === numberofImages) {
         slideCounter = 0;
     }
     slideCounter++;
-    console.log(slideCounter)
+    console.log(slideCounter);
     img.setAttribute('src', images[slideCounter]);
-    animateIn();
+    
 }
 
 function prevImage() {
     slideCounter--;
+    animateIn();
     if (slideCounter === 0) {
         slideCounter = numberofImages;
     }
-
     img.setAttribute('src', images[slideCounter]);
-    animateIn();
+    
 }
 
 function animateIn() {
@@ -104,13 +96,11 @@ function animateIn() {
 function timer() {
     for (let i = 1; i <= numberofImages; i++) {
         setTimeout(function () {
+            animateIn();
+            loadImage(images[i]);
             if (i === numberofImages) {
-                loadImage(images[i]);
                 timer();
-            } else {
-                loadImage(images[i]);
             }
         }, settings.duration * i);
     }
 }
-
