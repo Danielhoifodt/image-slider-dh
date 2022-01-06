@@ -1,3 +1,5 @@
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Danielhoifodt/image-slider-dh.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Danielhoifodt/image-slider-dh/context:javascript)
+
 # image-slider-dh
 
 This is a image slider made for webpages.
